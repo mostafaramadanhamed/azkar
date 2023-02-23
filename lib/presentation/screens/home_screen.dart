@@ -1,4 +1,5 @@
 import 'package:azkar/core/app_constant/app_strings.dart';
+import 'package:azkar/core/app_constant/app_colors.dart';
 import 'package:flutter/material.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -46,17 +47,17 @@ class HomeScreen extends StatelessWidget {
 }) {
     return InkWell(
             borderRadius: BorderRadius.circular( MediaQuery.of(context).size.width/12),
-            highlightColor: Colors.deepPurple.shade100,
+            highlightColor: AppColor.itemColor.shade100,
             onTap: onTap,
             child: Card(
               clipBehavior: Clip.antiAliasWithSaveLayer,
               elevation: 7.9,
-              shadowColor: Colors.deepPurple.shade300,
+              shadowColor: AppColor.itemColor.shade300,
               shape: RoundedRectangleBorder(
-                side: const BorderSide(color: Colors.deepPurple),
+                side:   BorderSide(color: AppColor.itemColor.shade300),
                 borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width/12)
               ),
-              color: Colors.deepPurple,
+              color: AppColor.itemColor,
               child: Row(
                 children: [
                   Expanded(
