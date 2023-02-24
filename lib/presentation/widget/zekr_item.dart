@@ -27,7 +27,7 @@ Widget buildZekrItem(BuildContext context,{
               ),),),
           ),
           SizedBox(width: MediaQuery.of(context).size.width/22,),
-          Expanded(flex: 6,child:Column(
+          Expanded(flex: 6,child:Column(crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(title,style: Theme.of(context).textTheme.subtitle1!.copyWith(
                 color: AppColor.kSecondaryColor,

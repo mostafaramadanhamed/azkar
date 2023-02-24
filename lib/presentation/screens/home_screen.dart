@@ -28,21 +28,29 @@ class HomeScreen extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Directionality(
+                      builder: (context) => const Directionality(
                         textDirection: TextDirection.rtl,
-                          child: AzkarMorningScreen()),
+                          child: AzkarMorningScreen(isMorning: true,)),
                     ));
-              }, widget:Image(image: NetworkImage('https://img.freepik.com/free-vector/hand-drawn-tasbih-illustration_23-2149265392.jpg?w=826&t=st=1677143647~exp=1677144247~hmac=f4c03ce6e56e9a6e4bc288a2beabac3fe13f1dbcd2213ab70bac78219cbdff57')),),
+              }, ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child:
-                  buildItem(context, title: AppString.azkarNight, onTap: () {}, widget:Image(image: NetworkImage('https://img.freepik.com/free-vector/hand-drawn-tasbih-illustration_23-2149265392.jpg?w=826&t=st=1677143647~exp=1677144247~hmac=f4c03ce6e56e9a6e4bc288a2beabac3fe13f1dbcd2213ab70bac78219cbdff57')),),
+                  buildItem(context, title: AppString.azkarNight, onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Directionality(
+                              textDirection: TextDirection.rtl,
+                              child:  AzkarMorningScreen(isMorning: false,)),
+                        ));
+                  },),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: buildItem(context,
-                  title: AppString.azkarDefault, onTap: () {}, widget:Image(image: NetworkImage('https://img.freepik.com/free-vector/hand-drawn-tasbih-illustration_23-2149265392.jpg?w=826&t=st=1677143647~exp=1677144247~hmac=f4c03ce6e56e9a6e4bc288a2beabac3fe13f1dbcd2213ab70bac78219cbdff57')),),
+                  title: AppString.azkarDefault, onTap: () {},),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -50,9 +58,6 @@ class HomeScreen extends StatelessWidget {
                 context,
                 title: AppString.azkark,
                 onTap: () {},
-                widget: Image(
-                    image: NetworkImage(
-                        'https://img.freepik.com/free-vector/hand-drawn-tasbih-illustration_23-2149265392.jpg?w=826&t=st=1677143647~exp=1677144247~hmac=f4c03ce6e56e9a6e4bc288a2beabac3fe13f1dbcd2213ab70bac78219cbdff57')),
               ),
             ),
           ],
