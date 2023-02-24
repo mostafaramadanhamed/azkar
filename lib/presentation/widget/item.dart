@@ -7,14 +7,14 @@ InkWell buildItem(BuildContext context,{
 }) {
   return InkWell(
     borderRadius: BorderRadius.circular( MediaQuery.of(context).size.width/12),
-    highlightColor: AppColor.kPrimaryColor.shade100,
+    highlightColor: AppColor.kPrimaryColor2,
     onTap: onTap,
     child: Card(
       clipBehavior: Clip.antiAliasWithSaveLayer,
       elevation: 7.9,
-      shadowColor: AppColor.kPrimaryColor.shade300,
+      shadowColor: AppColor.kPrimaryColor1,
       shape: RoundedRectangleBorder(
-          side:   BorderSide(color: AppColor.kPrimaryColor.shade300),
+          side:   BorderSide(color: AppColor.kPrimaryColor1),
           borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width/12)
       ),
       color: AppColor.kPrimaryColor,

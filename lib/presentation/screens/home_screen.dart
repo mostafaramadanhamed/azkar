@@ -12,8 +12,8 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsets.only(
-          top: MediaQuery.of(context).size.height / 10,
-          bottom: MediaQuery.of(context).size.height / 70,
+          top: MediaQuery.of(context).size.height / 5,
+          bottom: MediaQuery.of(context).size.height / 30,
           left: MediaQuery.of(context).size.height / 50,
           right: MediaQuery.of(context).size.height / 50,
         ),
@@ -46,11 +46,6 @@ class HomeScreen extends StatelessWidget {
                               child:  AzkarMorningScreen(isMorning: false,)),
                         ));
                   },),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: buildItem(context,
-                  title: AppString.azkarDefault, onTap: () {},),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),

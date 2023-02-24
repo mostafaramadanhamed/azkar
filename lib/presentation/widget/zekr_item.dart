@@ -11,12 +11,12 @@ Widget buildZekrItem(BuildContext context,{
     child: Card(
       clipBehavior: Clip.antiAliasWithSaveLayer,
       elevation: 7.9,
-      shadowColor: AppColor.kPrimaryColor.shade300,
+      shadowColor: AppColor.kPrimaryColor1,
       shape: RoundedRectangleBorder(
-          side:   BorderSide(color: AppColor.kPrimaryColor.shade300),
+          side:   BorderSide(color: AppColor.kPrimaryColor1),
           borderRadius: BorderRadius.circular(MediaQuery.of(context).size.width/30)
       ),
-      color: AppColor.kPrimaryColor,
+      color: AppColor.kPrimaryColor1,
       child: Row(
         children: [
           Expanded(
