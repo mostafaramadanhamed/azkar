@@ -1,3 +1,6 @@
+import 'package:azkar/core/app_constant/app_strings.dart';
+import 'package:azkar/presentation/widget/zekr_item.dart';
+import 'package:azkar/presentation/widget/top_title.dart';
 import 'package:flutter/material.dart';
 
 class AzkarMorningScreen extends StatelessWidget {
@@ -8,13 +11,13 @@ class AzkarMorningScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(height: 200,width: 100,),
-          Text('data'),
-          Text('data'),
-          Text('data'),
-          Text('data'),
+          buildITopTitle(context,title: AppString.azkarMorning),
+
+         buildZekrItem(context, title: AzkarString.ayatElkorsi,
+            number: 1,)
         ],
       ),
     );
   }
+
 }
