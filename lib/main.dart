@@ -8,7 +8,7 @@ import 'package:hive_flutter/adapters.dart';
 void main() async{
   await Hive.initFlutter();
    await Hive.openBox<AzkarModel>(AppString.kBoxName);
-  Hive.registerAdapter(MyObjectAdapter());
+  Hive.registerAdapter(AzkarModelAdapter());
   runApp(const MyApp());
 }
 
