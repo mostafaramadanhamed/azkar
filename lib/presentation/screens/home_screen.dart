@@ -26,7 +26,9 @@ class HomeScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child:
-                  buildItem(context, title: AppString.azkarMorning, onTap: () {
+                  buildItem(context,
+                    url: AppString.azkarMorningUrl,
+                    title: AppString.azkarMorning, onTap: () {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -39,7 +41,9 @@ class HomeScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child:
-                  buildItem(context, title: AppString.azkarNight, onTap: () {
+                  buildItem(context,
+                    url: AppString.azkarNightUrl,
+                    title: AppString.azkarNight, onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -53,6 +57,7 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: buildItem(
                 context,
+                url: AppString.azkarkUrl,
                 title: AppString.azkark,
                 onTap: () {
                   Navigator.push(

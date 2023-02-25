@@ -20,7 +20,7 @@ class Button extends StatelessWidget {
           onTap:onTap,
           child:  isLoading ?const CircularProgressIndicator(color: Colors.black,):
           const Center(child:  Text('Add',style: TextStyle(
-              color: AppColor.kPrimaryColor1,
+              color: AppColor.kPrimaryColor,
               fontWeight: FontWeight.w600,
               fontSize: 17
           ),),)),);

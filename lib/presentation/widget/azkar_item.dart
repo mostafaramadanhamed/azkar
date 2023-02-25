@@ -1,4 +1,5 @@
 import 'package:azkar/core/app_constant/app_colors.dart';
+import 'package:azkar/core/app_constant/app_strings.dart';
 import 'package:azkar/data/models/azkar_model.dart';
 import 'package:azkar/presentation/controller/azkar/azkar_cubit.dart';
 import 'package:azkar/presentation/screens/seb7a_counter.dart';
@@ -43,7 +44,7 @@ class AzkarItem extends StatelessWidget {
               ),
               trailing: IconButton(onPressed: (){
                 azkar.delete();
-                ScaffoldMessenger.of(context).showSnackBar( buildSnackBar(text: 'Note was deleted successfully',color: AppColor.kPrimaryColor2),);
+                ScaffoldMessenger.of(context).showSnackBar( buildSnackBar(text: AppString.delete,color: AppColor.kPrimaryColor2),);
                 BlocProvider.of<AzkarCubit>(context).fetchAllAzkar();
               },
                 icon:const Icon (

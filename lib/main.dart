@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
+          fontFamily: 'AmiriQuran',
             floatingActionButtonTheme: FloatingActionButtonThemeData(
               backgroundColor: AppColor.kPrimaryColor,
             )
