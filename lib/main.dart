@@ -1,7 +1,14 @@
+import 'package:azkar/core/app_constant/app_strings.dart';
+import 'package:azkar/data/models/azkar_model.dart';
 import 'package:azkar/presentation/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+import 'package:hive_flutter/adapters.dart';
+
+void main() async{
+  await Hive.initFlutter();
+   await Hive.openBox<AzkarModel>(AppString.kBoxName);
+  Hive.registerAdapter(MyObjectAdapter());
   runApp(const MyApp());
 }
 
