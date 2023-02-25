@@ -1,7 +1,9 @@
 import 'package:azkar/core/app_constant/app_strings.dart';
 import 'package:azkar/presentation/widget/item.dart';
+import 'package:azkar/presentation/screens/seb7a.dart';
 import 'package:azkar/presentation/screens/morning.dart';
 import 'package:flutter/material.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -52,7 +54,15 @@ class HomeScreen extends StatelessWidget {
               child: buildItem(
                 context,
                 title: AppString.azkark,
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const Directionality(
+                            textDirection: TextDirection.rtl,
+                            child:  Seb7aScreen()),
+                      ));
+                },
               ),
             ),
           ],
