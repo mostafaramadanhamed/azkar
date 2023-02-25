@@ -1,44 +1,58 @@
 import 'package:azkar/core/app_constant/app_colors.dart';
 import 'package:azkar/data/models/azkar_model.dart';
 import 'package:azkar/presentation/controller/azkar/azkar_cubit.dart';
+import 'package:azkar/presentation/screens/seb7a_counter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class NoteItem extends StatelessWidget {
-  const NoteItem.AzkarItem({Key? key, required this.azkar}) : super(key: key);
+class AzkarItem extends StatelessWidget {
+  const AzkarItem({Key? key, required this.azkar}) : super(key: key);
   final AzkarModel azkar;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            title:  Text(azkar.title,style: const TextStyle(
-              color: Colors.black,
-              fontSize: 25,
-            ),),
-            subtitle:  Padding(
-              padding: const EdgeInsets.only(top: 16),
-              child: Text(azkar.num.toString(),style: TextStyle(
-                color: Colors.black.withOpacity(.5),
-                fontSize: 18,
-              ),),
+    return InkWell(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context){
+          return Directionality(
+            textDirection: TextDirection.rtl,
+              child: Seb7aCounter(azkar: azkar,));
+        }));
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: AppColor.kPrimaryColor,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            ListTile(
+              contentPadding: EdgeInsets.zero,
+
+              title:  Text(azkar.title,maxLines:1,overflow:TextOverflow.ellipsis,
+                  style:  Theme.of(context).textTheme.headline5!.copyWith(
+                color: AppColor.kSecondaryColor,
+              )),
+              subtitle:  Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Text(azkar.num.toString(),style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                  color: AppColor.kSecondaryColor,
+                ),),
+              ),
+              trailing: IconButton(onPressed: (){
+                azkar.delete();
+                ScaffoldMessenger.of(context).showSnackBar( buildSnackBar(text: 'Note was deleted successfully',color: AppColor.kPrimaryColor2),);
+                BlocProvider.of<AzkarCubit>(context).fetchAllAzkar();
+              },
+                icon:const Icon (
+                  Icons.delete,
+                  color: AppColor.kSecondaryColor,
+                  size: 25,),),
             ),
-            trailing: IconButton(onPressed: (){
-              azkar.delete();
-              ScaffoldMessenger.of(context).showSnackBar( buildSnackBar(text: 'Note was deleted successfully',color: AppColor.kPrimaryColor2),);
-              BlocProvider.of<AzkarCubit>(context).fetchAllAzkar();
-            },
-              icon:const Icon (Icons.delete,color: Colors.black,size: 25,),),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

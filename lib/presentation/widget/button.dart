@@ -19,7 +19,7 @@ class Button extends StatelessWidget {
         //borderRadius: BorderRadius.circular(14),
           onTap:onTap,
           child:  isLoading ?const CircularProgressIndicator(color: Colors.black,):
-          Center(child:  Text('Add',style: TextStyle(
+          const Center(child:  Text('Add',style: TextStyle(
               color: AppColor.kPrimaryColor1,
               fontWeight: FontWeight.w600,
               fontSize: 17

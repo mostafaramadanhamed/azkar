@@ -1,4 +1,5 @@
 import 'package:azkar/presentation/widget/add_bottom_sheet.dart';
+import 'package:azkar/presentation/widget/azkar_view_body.dart';
 import 'package:flutter/material.dart';
 
 class Seb7aScreen extends StatelessWidget {
@@ -16,11 +17,14 @@ class Seb7aScreen extends StatelessWidget {
               ),
               context: context,
               builder: (context){
-            return AddNoteBottomSheet() ;
+            return const Directionality(
+              textDirection: TextDirection.rtl,
+                child: AddNoteBottomSheet()) ;
           });
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
+      body: const AzkarViewBody(),
     );
   }
 }
