@@ -1,26 +1,26 @@
+import 'package:azkar/data/models/azkar_model.dart';
+import 'package:azkar/presentation/controller/add_note/add_azkar_cubit.dart';
+import 'package:azkar/presentation/controller/add_note/add_azkar_states.dart';
+import 'package:azkar/presentation/widget/button.dart';
+import 'package:azkar/presentation/widget/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
-import 'package:whatsapp/cubit/add_notes/add_notes_cubit.dart';
-import 'package:whatsapp/cubit/add_notes/add_notes_states.dart';
-import 'package:whatsapp/data/models/note_model.dart';
-import 'package:whatsapp/view/widget/button.dart';
-import 'color_list_view.dart';
-import 'custom_text_field.dart';
 
-class AddNoteForm extends StatefulWidget {
-  const AddNoteForm({
+
+class AddAzkarForm extends StatefulWidget {
+  const AddAzkarForm({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<AddNoteForm> createState() => _AddNoteFormState();
+  State<AddAzkarForm> createState() => _AddAzkarFormState();
 }
 
-class _AddNoteFormState extends State<AddNoteForm> {
+class _AddAzkarFormState extends State<AddAzkarForm> {
   final GlobalKey<FormState> formKey =GlobalKey();
   AutovalidateMode autovalidateMode=AutovalidateMode.disabled;
-  String ? title,subTitle;
+  String ? title;
+  int ? number;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -35,33 +35,26 @@ class _AddNoteFormState extends State<AddNoteForm> {
             },),
           ),
           CustomTextFiled(hint: 'Details',maxLines: 5,onSaved: (val){
-            subTitle=val;
+            number=val as int?;
           },),
           SizedBox(
             height: MediaQuery.of(context).size.height/25,
           ),
-          //color
-          const ColorListView(),
           //button
           Padding(
             padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width/50,vertical: MediaQuery.of(context).size.height/50),
-            child:BlocBuilder<AddNotesCubit,AddNotesStates>(
+            child:BlocBuilder<AddAzkarCubit,AddAzkarStates>(
                 builder: (context, state) {
                   return Button(
-                    isLoading: state is AddNoteLoadingState?true:false,
+                    isLoading: state is AddAzkarLoadingState?true:false,
                     onTap: (){
                       if(formKey.currentState!.validate()){
                         formKey.currentState!.save();
-                        var currentDate = DateTime.now();
-
-                        var formattedCurrentDate =
-                        DateFormat.MMMEd().format(currentDate);
-                        var noteMode=NoteModel(
+                        var azkarModel=AzkarModel(
                             title: title!,
-                            subTitle: subTitle!,
-                            date: formattedCurrentDate,
-                            color: Colors.orange.value);
-                        BlocProvider.of<AddNotesCubit>(context).addNote(noteMode);
+                            num: number!.toInt(),
+                            );
+                        BlocProvider.of<AddAzkarCubit>(context).addAzkar(azkarModel);
                       }
                       else{
                         autovalidateMode=AutovalidateMode.always;
