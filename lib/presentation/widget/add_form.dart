@@ -1,6 +1,6 @@
 import 'package:azkar/data/models/azkar_model.dart';
-import 'package:azkar/presentation/controller/add_note/add_azkar_cubit.dart';
-import 'package:azkar/presentation/controller/add_note/add_azkar_states.dart';
+import 'package:azkar/presentation/controller/add_azkar/add_azkar_cubit.dart';
+import 'package:azkar/presentation/controller/add_azkar/add_azkar_states.dart';
 import 'package:azkar/presentation/widget/button.dart';
 import 'package:azkar/presentation/widget/text_field.dart';
 import 'package:flutter/material.dart';
@@ -34,8 +34,8 @@ class _AddAzkarFormState extends State<AddAzkarForm> {
               title=val;
             },),
           ),
-          CustomTextFiled(hint: 'Details',maxLines: 5,onSaved: (val){
-            number=val as int?;
+          CustomTextFiled(hint: 'Details',keyboardType:TextInputType.number,onSaved: (val){
+            number=int.parse(val!);
           },),
           SizedBox(
             height: MediaQuery.of(context).size.height/25,
@@ -52,7 +52,7 @@ class _AddAzkarFormState extends State<AddAzkarForm> {
                         formKey.currentState!.save();
                         var azkarModel=AzkarModel(
                             title: title!,
-                            num: number!.toInt(),
+                            num: number!,
                             );
                         BlocProvider.of<AddAzkarCubit>(context).addAzkar(azkarModel);
                       }

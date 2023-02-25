@@ -1,6 +1,6 @@
 import 'package:azkar/core/app_constant/app_strings.dart';
 import 'package:azkar/data/models/azkar_model.dart';
-import 'package:azkar/presentation/controller/add_note/add_azkar_states.dart';
+import 'package:azkar/presentation/controller/add_azkar/add_azkar_states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 

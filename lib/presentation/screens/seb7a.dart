@@ -1,4 +1,4 @@
-import 'package:azkar/presentation/widget/text_field.dart';
+import 'package:azkar/presentation/widget/add_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
 class Seb7aScreen extends StatelessWidget {
@@ -16,7 +16,7 @@ class Seb7aScreen extends StatelessWidget {
               ),
               context: context,
               builder: (context){
-            return ;
+            return AddNoteBottomSheet() ;
           });
         },
         child: Icon(Icons.add),

@@ -1,7 +1,6 @@
 import 'package:azkar/presentation/controller/add_azkar/add_azkar_cubit.dart';
 import 'package:azkar/presentation/controller/add_azkar/add_azkar_states.dart';
-import 'package:azkar/presentation/controller/add_note/add_azkar_cubit.dart';
-import 'package:azkar/presentation/controller/add_note/add_azkar_states.dart';
+import 'package:azkar/presentation/controller/azkar/azkar_cubit.dart';
 import 'package:azkar/presentation/widget/add_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,7 +20,7 @@ class AddNoteBottomSheet extends StatelessWidget {
               debugPrint('Error ${state.error}');
             }
             if(state is AddAzkarSuccessState){
-              BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+              BlocProvider.of<AzkarCubit>(context).fetchAllAzkar();
              // ScaffoldMessenger.of(context).showSnackBar( buildSnackBar(text: 'Note was added successfully',color: kColors[3]),);
               Navigator.pop(context);
             }
