@@ -71,7 +71,7 @@ class _Seb7aCounterState extends State<Seb7aCounter> {
               foregroundColor: AppColor.kPrimaryColor,
               radius: MediaQuery.of(context).size.height/8,
               child: CircleAvatar(
-                radius: MediaQuery.of(context).size.height/8.7,
+                radius: MediaQuery.of(context).size.height/8.6,
                 backgroundColor: AppColor.kSecondaryColor,
                 child: Text(number.toString(),style: Theme.of(context).textTheme.headline3!.copyWith(
                   color: AppColor.kPrimaryColor
@@ -125,7 +125,8 @@ class _Seb7aCounterState extends State<Seb7aCounter> {
           ),
           height: MediaQuery.of(context).size.height/6,
           width: MediaQuery.of(context).size.width,
-          child:Text(widget.azkar.title,style: Theme.of(context).textTheme.headline4!.copyWith(
+          child:Text(widget.azkar.title,maxLines:1,overflow:TextOverflow.ellipsis
+            ,style: Theme.of(context).textTheme.headline4!.copyWith(
             color: AppColor.kPrimaryColor,
           ),) ,
         );

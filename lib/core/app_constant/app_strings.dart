@@ -2,6 +2,7 @@ class AppString{
   static const kBoxName='azkar_box';
   static const azkar='التسبيحة';
   static const azkarNum="العدد";
+  static const ad="إضافة";
   static const counter=" العدد الكلي";
   static const dawra="الدورة";
   static const delete="تم المسح بنجاح";

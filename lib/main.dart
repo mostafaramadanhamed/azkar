@@ -28,13 +28,13 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           fontFamily: 'AmiriQuran',
-            floatingActionButtonTheme: FloatingActionButtonThemeData(
+            floatingActionButtonTheme: const FloatingActionButtonThemeData(
               backgroundColor: AppColor.kPrimaryColor,
             )
         ),
-        home: Directionality(
+        home: const Directionality(
           textDirection: TextDirection.rtl,
-          child: const HomeScreen(),),
+          child:  HomeScreen(),),
       ),
     );
   }
